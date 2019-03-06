@@ -67,3 +67,4 @@ end
 
 gem 'dotenv-rails'
 gem 'httpclient'
+gem 'bcrypt', '~> 3.1.7'
