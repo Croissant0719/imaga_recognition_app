@@ -5,40 +5,25 @@ import { useState } from "react";
 
 import BaseImage from "./src/minion_ca.png";
 
-// import Image from "./index/image";
-// import UploadImage from "./index/image/upload_image";
-
-// const data = {
-//   image: BaseImage,
-// }
+import Image from "./index/image";
+import UploadImage from "./index/image/upload_image";
 
 const Index = () => {
-  const imagePath = "upload_image";
-
   const [image, setImage] = useState<string>(BaseImage);
 
-  const uploadRequest = (element: any) => {
-    const target = element.target as HTMLInputElement;
-    const file = target.files[0] as File;
-    const file_path = URL.createObjectURL(file);
+  const imageData = {
+    image: image,
+  }
 
-    setImage(file_path);
-  };
+  const uploadImageData = {
+    image: image,
+    setImage: setImage
+  }
 
   return (
     <div>
-      <label>
-        <img src={image} style={{ width: "240px" }} />
-      </label>
-      <div>
-        <input
-          onChange={uploadRequest}
-          type="file"
-          accept="image/png"
-        />
-      </div>
-      {/* <Image {...data} />
-      <UploadImage /> */}
+      <Image {...imageData} />
+      <UploadImage {...uploadImageData} />
     </div>
   );
 };
