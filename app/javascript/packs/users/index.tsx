@@ -21,7 +21,7 @@ const Index = () => {
       <form action={data.users_path} method="post">
         <div>
           <label>名前</label>
-          <input name="name" placeholder="username" onBlur={() => {setUserName(userName); console.log(userName)}}>{userName}</input>
+          <input name="name" placeholder="username" onBlur={(e) => {setUserName(e.target.value)}}></input>
         </div>
         <div>
           <label>Email</label>
