@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import { useState } from "react";
 
 const input = document.getElementById("user");
 const dataset = input.dataset;
@@ -8,20 +9,23 @@ const data = {
   users_path: dataset.users_path
 }
 
-console.log(data);
-
 const Index = () => {
+  const [userName, setUserName] = useState<string>()
+  const [userEmail, setEmail] = useState<string>()
+  const [userPassword, setUserPassword] = useState<string>()
+  const [userPasswordConfirm, setUserPasswordConfirm] = useState<string>()
+
   return(
     <div>
       <h1> Users Index </h1>
       <form action={data.users_path} method="post">
         <div>
           <label>名前</label>
-          <input name="name"></input>
+          <input name="name" placeholder="username" onBlur={() => {setUserName(userName); console.log(userName)}}>{userName}</input>
         </div>
         <div>
           <label>Email</label>
-          <input name="email"></input>
+          <input name="email" placeholder="email" ></input>
         </div>
         <div>
           <label>password</label>
