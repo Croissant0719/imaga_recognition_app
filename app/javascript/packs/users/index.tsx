@@ -27,19 +27,19 @@ const Index = () => {
       <h1> Users Index </h1>
       <div>
         <label>名前</label>
-        <input name="name" placeholder="username" onBlur={(e) => {setUserName(e.target.value)}}></input>
+        <input name="name" placeholder="username" onBlur={e => {setUserName(e.target.value)}}></input>
       </div>
       <div>
         <label>Email</label>
-        <input name="email" placeholder="email" onBlur={(e) => {setEmail(e.target.value)}}></input>
+        <input name="email" placeholder="email" onBlur={e => {setEmail(e.target.value)}}></input>
       </div>
       <div>
         <label>password</label>
-        <input type="password" name="password" onBlur={(e) => {setUserPassword(e.target.value)}}></input>
+        <input type="password" name="password" onBlur={e => {setUserPassword(e.target.value)}}></input>
       </div>
       <div>
         <label>passwordの確認</label>
-        <input type="password" name="password_confirmation" onBlur={(e) => {setUserPasswordConfirm(e.target.value)}}></input>
+        <input type="password" name="password_confirmation" onBlur={e => {setUserPasswordConfirm(e.target.value)}}></input>
       </div>
       <button type="submit" onClick={() => console.log(userInfo)}>決定</button>
     </div>
