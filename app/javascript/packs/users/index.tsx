@@ -15,28 +15,33 @@ const Index = () => {
   const [userPassword, setUserPassword] = useState<string>()
   const [userPasswordConfirm, setUserPasswordConfirm] = useState<string>()
 
+  const userInfo = {
+    userName: userName,
+    userEmail: userEmail,
+    userPassword: userPassword,
+    userPasswordConfirm: userPasswordConfirm,
+  }
+
   return(
     <div>
       <h1> Users Index </h1>
-      <form action={data.users_path} method="post">
-        <div>
-          <label>名前</label>
-          <input name="name" placeholder="username" onBlur={(e) => {setUserName(e.target.value)}}></input>
-        </div>
-        <div>
-          <label>Email</label>
-          <input name="email" placeholder="email" ></input>
-        </div>
-        <div>
-          <label>password</label>
-          <input type="password" name="password"></input>
-        </div>
-        <div>
-          <label>passwordの確認</label>
-          <input type="password" name="password_confirmation"></input>
-        </div>
-        <button type="submit">決定</button>
-      </form>
+      <div>
+        <label>名前</label>
+        <input name="name" placeholder="username" onBlur={(e) => {setUserName(e.target.value)}}></input>
+      </div>
+      <div>
+        <label>Email</label>
+        <input name="email" placeholder="email" onBlur={(e) => {setEmail(e.target.value)}}></input>
+      </div>
+      <div>
+        <label>password</label>
+        <input type="password" name="password" onBlur={(e) => {setUserPassword(e.target.value)}}></input>
+      </div>
+      <div>
+        <label>passwordの確認</label>
+        <input type="password" name="password_confirmation" onBlur={(e) => {setUserPasswordConfirm(e.target.value)}}></input>
+      </div>
+      <button type="submit" onClick={() => console.log(userInfo)}>決定</button>
     </div>
   );
 };
