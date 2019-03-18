@@ -28,60 +28,20 @@ const Index = () => {
       <table>
         <tbody>
           <tr>
-            <td>
-              <label>名前</label>
-            </td>
-            <td>
-              <input
-                name="name"
-                placeholder="username"
-                onBlur={e => {
-                  setUserName(e.target.value);
-                }}
-              />
-            </td>
+            <td><label>名前</label></td>
+            <td><input name="name" placeholder="username" onBlur={e => {setUserName(e.target.value);}} /></td>
           </tr>
           <tr>
-            <td>
-              <label>Email</label>
-            </td>
-            <td>
-              <input
-                name="email"
-                placeholder="email"
-                onBlur={e => {
-                  setEmail(e.target.value);
-                }}
-              />
-            </td>
+            <td><label>Email</label></td>
+            <td><input name="email" placeholder="email" onBlur={e => {setEmail(e.target.value);}} /></td>
           </tr>
           <tr>
-            <td>
-              <label>password</label>
-            </td>
-            <td>
-              <input
-                type="password"
-                name="password"
-                onBlur={e => {
-                  setUserPassword(e.target.value);
-                }}
-              />
-            </td>
+            <td><label>password</label></td>
+            <td><input type="password" name="password" onBlur={e => { setUserPassword(e.target.value); }} /></td>
           </tr>
           <tr>
-            <td>
-              <label>passwordの確認</label>
-            </td>
-            <td>
-              <input
-                type="password"
-                name="password_confirmation"
-                onBlur={e => {
-                  setUserPasswordConfirm(e.target.value);
-                }}
-              />
-            </td>
+            <td><label>passwordの確認</label></td>
+            <td><input type="password" name="password_confirmation" onBlur={e => { setUserPasswordConfirm(e.target.value); }} /></td>
           </tr>
         </tbody>
       </table>
