@@ -2,10 +2,14 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { useState } from "react";
 
+import axios from "axios";
+const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+axios.defaults.headers.common["X-CSRF-Token"] = csrfToken;
+
 const input = document.getElementById("user");
 const dataset = input.dataset;
 
-const data = {
+const inputData = {
   users_path: dataset.users_path
 };
 
@@ -21,6 +25,30 @@ const Index = () => {
     userPassword: userPassword,
     userPasswordConfirm: userPasswordConfirm
   };
+
+  const createNewUser = () => {
+    const url = inputData.users_path;
+    console.log(url);
+
+    const data = {
+      name: userInfo.userName,
+      email: userInfo.userEmail,
+      password: userInfo.userPassword,
+      password_confirmation: userInfo.userPasswordConfirm,
+    }
+    console.log(data);
+
+    axios({
+      method: "POST",
+      url: url,
+      data: data,
+    })
+      .then(function(response) {})
+      .catch(function(error) {
+        const alertInfo = "もう一度やり直してください。";
+        alert(alertInfo);
+      });
+  }
 
   return (
     <div>
@@ -45,7 +73,7 @@ const Index = () => {
           </tr>
         </tbody>
       </table>
-      <button type="submit" onClick={() => console.log(userInfo)}>
+      <button type="submit" onClick={createNewUser}>
         決定
       </button>
     </div>
