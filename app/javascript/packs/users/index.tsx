@@ -23,20 +23,17 @@ const Index = () => {
     userName: userName,
     userEmail: userEmail,
     userPassword: userPassword,
-    userPasswordConfirm: userPasswordConfirm
+    userPasswordConfirm: userPasswordConfirm,
   };
 
   const createNewUser = () => {
     const url = inputData.users_path;
-    console.log(url);
-
     const data = {
       name: userInfo.userName,
       email: userInfo.userEmail,
       password: userInfo.userPassword,
       password_confirmation: userInfo.userPasswordConfirm,
     }
-    console.log(data);
 
     axios({
       method: "POST",
@@ -57,23 +54,23 @@ const Index = () => {
         <tbody>
           <tr>
             <td><label>名前</label></td>
-            <td><input name="name" placeholder="username" onBlur={e => {setUserName(e.target.value);}} /></td>
+            <td><input placeholder="username" onBlur={e => {setUserName(e.target.value);}} /></td>
           </tr>
           <tr>
             <td><label>Email</label></td>
-            <td><input name="email" placeholder="email" onBlur={e => {setEmail(e.target.value);}} /></td>
+            <td><input placeholder="email" onBlur={e => {setEmail(e.target.value);}} /></td>
           </tr>
           <tr>
             <td><label>password</label></td>
-            <td><input type="password" name="password" onBlur={e => { setUserPassword(e.target.value); }} /></td>
+            <td><input type="password" onBlur={e => { setUserPassword(e.target.value); }} /></td>
           </tr>
           <tr>
             <td><label>passwordの確認</label></td>
-            <td><input type="password" name="password_confirmation" onBlur={e => { setUserPasswordConfirm(e.target.value); }} /></td>
+            <td><input type="password" onBlur={e => { setUserPasswordConfirm(e.target.value); }} /></td>
           </tr>
         </tbody>
       </table>
-      <button type="submit" onClick={createNewUser}>
+      <button type="button" onClick={createNewUser}>
         決定
       </button>
     </div>
