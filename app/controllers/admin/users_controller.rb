@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This is UserController
-class UsersController < ApplicationController
+class Admin::UsersController < ApplicationController
   def new
     @user = User.new
   end
@@ -14,10 +14,8 @@ class UsersController < ApplicationController
     @user.password = params[:password]
     @user.password_confirmation = params[:password_confirmation]
 
-    logger.info "### user_param: #{user_params}"
-
     if @user.save!
-      redirect_to root_url, notice: "Create new user: #{@user.name} !"
+      redirect_to admin_user_url, notice: "Create new user: #{@user.name} !"
     else
       render :new
     end
