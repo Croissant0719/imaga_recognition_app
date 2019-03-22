@@ -22,3 +22,26 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## DB
+### User
+  name
+  email
+  password
+
+### Image
+  user_id
+  name
+
+### Label
+  image_id
+  label000
+  label001
+  label002
+  label003
+  label004
+  label005
+  label006
+  label007
+  label008
+  label009
