@@ -1,4 +1,9 @@
 <div id="user"
   data-users_path="<%= admin_users_path %>"
-></div>
+>
+
+  <% form_with url: admin_users_path do %>
+    <input type="hidden" name="user_id" value="<%= @%
+  <% end %>
+</div>
 <%= javascript_pack_tag "users/index" %>
